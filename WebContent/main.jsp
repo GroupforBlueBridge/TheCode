@@ -91,7 +91,7 @@
 
 <ul>
 							<li>
-								contact us: 2282550468@qq.com / 2819963552@qq.com / 648923307@qq.com
+								contact us: 2282550468@qq.com / best.xutao@foxmail.com / 648923307@qq.com
 							<a href="help.jsp">or you just want some instruction?</a>
 							</li>
 						</ul>
@@ -213,35 +213,49 @@
 			<div id="content">
 				
 				<!-- widget grid -->
-				<section id="widget-grid" class="">
+				
 				
 				<!-- START ROW -->
 				
 				<h1  size="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome Use Internet </h1>
-					<div class="row">
-				
-						<!-- NEW COL START -->
-						
-				
+					<!-- <div class="row">	-->			
+						<!-- NEW COL START -->			
 							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
-								
+						<!--	<div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">   -->
 				
-								<!-- widget div-->
-
-									
-			
+								<!-- widget div-->			
 									<!-- end widget content -->
-				
-								
-								<!-- end widget div -->
-				
-							</div>
+								<!-- end widget div -->			
+							<!--  </div>  -->
 							<!-- end widget -->
 
-					</div>
+				<!--  	</div>   -->
+				
+											<form class="smart-form">	
+											<fieldset>
+												<section>
+													<label class="label">Select Time</label>
+													<label class="select">
+														<select class="input-sm">
+															<option value="0">Choose Time</option>
+															<option value="1">0:00</option>
+															<option value="2">2:00</option>
+															<option value="3">4:00</option>
+															<option value="4">6:00</option>
+															<option value="5">8:00</option>
+															<option value="6">10:00</option>
+															<option value="7">12:00</option>
+															<option value="8">14:00</option>
+															<option value="9">16:00</option>
+															<option value="10">18:00</option>
+															<option value="11">20:00</option>
+															<option value="12">22:00</option>
+														</select> <i></i> </label>
+												</section>
+												</fieldset>
+											</form>
 						<!-- END COL -->
-						</section>
+						
 						
 			</div>
 	

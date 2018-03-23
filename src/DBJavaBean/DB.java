@@ -10,8 +10,8 @@ public class DB implements ServletRequestAware{
 	private String driverName="com.mysql.jdbc.Driver";
 	private String user ="root";
 	  
-	//private String url = "jdbc:mysql://127.0.0.1:3306/urlsdb?useSSL=true";
-	//private String password="tjr19970907";
+	private String url = "jdbc:mysql://127.0.0.1:3306/urlsdb?useSSL=true";
+	private String password="tjr19970907";
 	  
 		
 	//private static String url = "jdbc:mysql://localhost:3306/urlsdb?useSSL=true";
@@ -21,8 +21,8 @@ public class DB implements ServletRequestAware{
 		 * should not just be commented but be deleted !!  
 		 */
 		//sina
-	private static String url = "jdbc:mysql://fmpemtltjykv.mysql.sae.sina.com.cn:10319/urlsdb";
-	private static String password = "123456";
+	//private static String url = "jdbc:mysql://fmpemtltjykv.mysql.sae.sina.com.cn:10319/urlsdb";
+	//private static String password = "123456";
 		
 		private Connection con = null;
 		  private Statement st =null;
