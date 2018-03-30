@@ -2,10 +2,13 @@ package JavaBean;
 
 public class MyMessBean {
   public String mail;
+  public String friendmail;
+  public String ACfriend;
   public String url;
   public String tag;
   public String rowid;
   private String state;
+  public String contt;
   public String getMail() {
     return mail;
   }
@@ -36,5 +39,23 @@ public class MyMessBean {
   }
   public void setRowid(String rowid) {
     this.rowid = rowid;
+  }
+  public String getFriendmail() {
+    return friendmail;
+  }
+  public void setFriendmail(String friendmail) {
+    this.friendmail = friendmail;
+  }
+  public String getACfriend() {
+    return ACfriend;
+  }
+  public void setACfriend(String aCfriend) {
+    ACfriend = aCfriend;
+  }
+  public String getContt() {
+    return contt;
+  }
+  public void setContt(String contt) {
+    this.contt = contt;
   }
 }

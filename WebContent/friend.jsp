@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    <%@page import="LogAction.LoginAction"%>
+    <%@page import="PersonMessage.lookinformation"%>
+    <%@taglib prefix="s" uri="/struts-tags"%>
+    <%@page import="java.sql.*" %>
+<%@page import= "java.util.ArrayList" %>
 
-<%@ page language="java" contentType="text/html; charset=utf-8"  %>
-  <%@page import="LogAction.LoginAction"%>
-<%@page import ="java.util.ArrayList" %>
-<%@taglib prefix="s" uri="/struts-tags"%>
-
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en-us">
 	<head>
 		<meta charset="utf-8">
@@ -58,6 +60,9 @@
 				<span id="logo"> <img src="img/url.jpg" alt="SmartAdmin"> </span>
 				<!-- END LOGO PLACEHOLDER -->
 				<!-- span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span> -->
+				
+															
+						
 				<!-- END LOGO PLACEHOLDER -->
 
 				<!-- Note: The activity badge color changes when clicked and resets the number to 0
@@ -90,12 +95,13 @@
 				<!-- END AJAX-DROPDOWN -->
 			</div>
 
-<ul>
+						<ul>
 							<li>
 								contact us: 2282550468@qq.com / best.xutao@foxmail.com / 648923307@qq.com
 							<a href="help.jsp">or you just want some instruction?</a>
 							</li>
 						</ul>
+						
 			<!-- pulled right: nav area -->
 			<div class="pull-right">
 
@@ -116,7 +122,7 @@
 
 		</header>
 		<!-- END HEADER -->
-
+		
 		<!-- Left panel : Navigation area -->
 		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
 		<aside id="left-panel">
@@ -128,7 +134,8 @@
 					<a href="javascript:void(0);" id="show-shortcut">
 						
 						<span>
-							<s:property value='email'/> 
+							<s:property value="email"/>
+							 
 						</span>
 						<i class="fa fa-angle-down"></i>
 					</a> 
@@ -153,6 +160,7 @@
 						<a href='<s:url action="Allinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Look Information</span></a>
 						
 					</li>
+					
 					<li>
 						<a href='<s:url action="friendaccept"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Friend</span></a>
 					</li>
@@ -164,11 +172,13 @@
 					</li>
 									
 					<li>
-						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search By UrlTag</span></a>
+						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search</span></a>
 					</li>
+					
 					<li>
 						<a href='<s:url action="helphref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Help Information</span></a>
 					</li>
+					
 					
 					<li>
 						<a href="login.jsp"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Logout</span></a>
@@ -192,118 +202,69 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Search By Tag</li>
+					<li>Home</li><li>Friend</li>
 				</ol>
-				<!-- end breadcrumb -->
-
 				
 			</div>
 			<!-- END RIBBON -->
-			<!-- MAIN CONTENT -->
 			<div id="content">
-				
-				<!-- widget grid -->
-				<section id="widget-grid" class="">
-				
-				<!-- START ROW -->
-				
-					<div class="row">
-				
-						<!-- NEW COL START -->
-						<article class="col-sm-12 col-md-12 col-lg-8">
-				
+			
+			<!-- NEW WIDGET START -->
+						<article class="col-sm-12 col-md-12 col-lg-10">
+
 							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
+							<div class="jarviswidget jarviswidget-color-greenLight" id="wid-id-3" data-widget-editbutton="false">
 								
+								<header>
+									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+									<h2>Friend Information</h2>
+
+								</header>		
 				
-								<!-- widget div-->
+				<!-- widget div-->
 								<div>
-				
+
 									<!-- widget edit box -->
 									<div class="jarviswidget-editbox">
 										<!-- This area used as dropdown edit box -->
-				
 									</div>
 									<!-- end widget edit box -->
-				
+
 									<!-- widget content -->
-									<div class="widget-body no-padding">
-			
-										<s:form action="search" class="smart-form">
-											<input name="email" type="hidden" value="<s:property value="email"/>" />
+									<div class="widget-body no-padding" overflow="auto">
+										<table class="table table-bordered" id="main_info_table">
+	
+											<thead>
+												<tr>
+													<th> friend</th>
+													<th> 操作 </th>
+													<th> friend</th>
+													<th> 操作 </th>
+												</tr>
+											</thead>
 											
-				
-											<fieldset>
-												
-												<section>
-													<label class="label">Searched Tag</label>
-													<label class="input">
-														<input type="text" name="tagname" class="input-sm">
-													</label>
-												</section>
-												
-												
 											
-											</fieldset>
-																							
-											<footer>
-													<button type="submit" class="btn btn-primary">
-														Submit
-													</button>
-													<button type="button" class="btn btn-default" onclick="window.history.back();">
-														Back
-													</button>
-											</footer>
-										</s:form>
+	<s:iterator value="listName" id="u" >	
+	<th><s:property value="#u.friendmail"/></th>
+	 <th><a href='<s:url action="deletefriend"><s:param name="email" value='email' /><s:param name="friendmail" value='#u.friendmail' /></s:url>'>删除</a></th>
+	</s:iterator>
+</table>
+
 										
-										<s:form action="searchfriend" class="smart-form">
-											<input name="email" type="hidden" value="<s:property value="email"/>" />
-											
-				
-											<fieldset>
-												
-												<section>
-													<label class="label">Searched Friend</label>
-													<label class="input">
-														<input type="text" name="friendname" class="input-sm">
-													</label>
-												</section>
-												
-												
-											
-											</fieldset>
-																							
-											<footer>
-													<button type="submit" class="btn btn-primary">
-														Submit
-													</button>
-													<button type="button" class="btn btn-default" onclick="window.history.back();">
-														Back
-													</button>
-											</footer>
-										</s:form>
-				
-
-
+										
 									</div>
 									<!-- end widget content -->
-				
+
 								</div>
 								<!-- end widget div -->
-				
+
 							</div>
 							<!-- end widget -->
-				
-						</article>
-					</div>
-						<!-- END COL -->
-						</section>
-						
-			</div>
-	
+				</article>
+				</div>
 			<!-- END MAIN CONTENT -->
-	
-			<!-- End main Panel -->
+					<!--================================================== -->
+
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 

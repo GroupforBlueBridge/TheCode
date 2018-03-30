@@ -97,7 +97,7 @@
 
 						<ul>
 							<li>
-								contact us: 2282550468@qq.com / 2819963552@qq.com / 648923307@qq.com
+								contact us: 2282550468@qq.com / best.xutao@foxmail.com / 648923307@qq.com
 							<a href="help.jsp">or you just want some instruction?</a>
 							</li>
 						</ul>
@@ -153,23 +153,33 @@
 			<nav>
 				<ul>
 					<li>
-						<a href='<s:url action="main"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
+						<a href='<s:url action="friendinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
 					</li>
 						
 					<li>
 						<a href='<s:url action="Allinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Look Information</span></a>
 						
 					</li>
+					
+					<li>
+						<a href='<s:url action="friendaccept"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Friend</span></a>
+					</li>
+					<li>
+						<a href='<s:url action="news"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">News</span></a>
+					</li>
+					
 					<li>
 						<a href='<s:url action="Addhref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Add New Url</span></a>
 					</li>
 									
 					<li>
-						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search By UrlTag</span></a>
+						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search</span></a>
 					</li>
+					
 					<li>
 						<a href='<s:url action="helphref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Help Information</span></a>
 					</li>
+					
 					
 					<li>
 						<a href="login.jsp"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Logout</span></a>

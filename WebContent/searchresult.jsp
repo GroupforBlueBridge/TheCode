@@ -93,7 +93,7 @@
 
 <ul>
 							<li>
-								contact us: 2282550468@qq.com / 2819963552@qq.com / 648923307@qq.com
+								contact us: 2282550468@qq.com / best.xutao@foxmail.com / 648923307@qq.com
 							<a href="help.jsp">or you just want some instruction?</a>
 							</li>
 						</ul>
@@ -147,12 +147,18 @@
 			<nav>
 				<ul>
 					<li>
-						<a href='<s:url action="main"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
+						<a href='<s:url action="friendinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
 					</li>
 						
 					<li>
 						<a href='<s:url action="Allinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Look Information</span></a>
 						
+					</li>
+					<li>
+						<a href='<s:url action="friendaccept"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Friend</span></a>
+					</li>
+					<li>
+						<a href='<s:url action="news"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">News</span></a>
 					</li>
 					<li>
 						<a href='<s:url action="Addhref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Add New Url</span></a>
@@ -299,55 +305,81 @@
 											</thead>
 											
 											
-	<s:iterator value="listName" id="u" >
-	<tr>
+											<s:iterator value="listName" id="u" >
+											<tr>
+											
+											<th><s:property value="#u.url"/></th>
+											<th><s:property value="#u.tag"/></th>
+											
+											<th><s:property value="#u.state" /></th>
+											
+											<th>
+											<a href='<s:url action="updatestate">
+													<s:param name="email" value='email' />
+													<s:param name="state" value='#u.state' />
+													<s:param name="url" value='#u.url' /></s:url>'> 
+												<font color=green>change state</font></a>
+											</th>
+											
+											<th><a href='<s:url action="updatehref"><s:param name="email" value='email' /><s:param name="state" value='#u.state' /><s:param name="url" value='#u.url' /></s:url>'>修改</a></th> 
+											<th><a href='<s:url action="deleteurl"><s:param name="email" value='email' /><s:param name="url" value='#u.url' /></s:url>'>删除</a></th>
+											</tr>
+											</s:iterator>
 	
-	<th><s:property value="#u.url"/></th>
-	<th><s:property value="#u.tag"/></th>
 	
-	<th><s:property value="#u.state" /></th>
+									</table>
+								</div>
+								
+								<div>
+
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+									</div>
+									<!-- end widget edit box -->
+
+									<!-- widget content -->
+									<div class="widget-body no-padding" overflow="auto">
+										<table class="table table-bordered" id="main_info_table">
 	
-	<th>
-	<a href='<s:url action="updatestate">
-			<s:param name="email" value='email' />
-			<s:param name="state" value='#u.state' />
-			<s:param name="url" value='#u.url' /></s:url>'> 
-		<font color=green>change state</font></a>
-	</th>
+											<thead>
+												<tr>
+													<th> Nmae</th>
+													
+												</tr>
+											</thead>
+											
+											
+											<s:iterator value="listName" id="u" >
+											<tr>
+											
+											<th><s:property value="#u.mail"/></th>
+											
+											
+											<th><a href='<s:url action="updatehref"><s:param name="email" value='email' /><s:param name="state" value='#u.state' /><s:param name="url" value='#u.url' /></s:url>'>添加</a></th> 
+											<th><a href='<s:url action="deleteurl"><s:param name="email" value='email' /><s:param name="url" value='#u.url' /></s:url>'>返回</a></th>
+											</tr>
+											</s:iterator>
 	
-	<th><a href='<s:url action="updatehref"><s:param name="email" value='email' /><s:param name="state" value='#u.state' /><s:param name="url" value='#u.url' /></s:url>'>修改</a></th> 
-	<th><a href='<s:url action="deleteurl"><s:param name="email" value='email' /><s:param name="url" value='#u.url' /></s:url>'>删除</a></th>
-	</tr>
-	</s:iterator>
-</table>
-<script type="text/javascript">
-	var tab = document.getElementById('main_info_table');
-	var rows_n = tab.rows.length;
-	for (var i = 1; i < rows_n; i++) {
-		var vlue = tab.rows[i].cells[2];
-		if (vlue.innerHTML == "close") {
-			vlue.style.color = "red";
-		}
-		else {
-			vlue.style.color = "pink";
-		}
-		//console.log("qqq", tab.rows[i].cells[3]);
-	}
-</script>
+	
+									</table>
+								</div>
+
+
 										
 										
 									</div>
 									<!-- end widget content -->
 
-								</div>
 								<!-- end widget div -->
 
 							</div>
 							<!-- end widget -->
 					</article>
+					
 					</div>
 						<!-- END COL -->
-						</section>
+					
 						
 			</div>
 	

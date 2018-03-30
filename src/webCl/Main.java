@@ -37,9 +37,9 @@ public class Main {
     }
 	public static void saveCtt(String url) {
 		String doUrl;
-		if (url.length() > 7 && url.substring(0, 7).equals("http://")) {
+		if (url.substring(0, 7).equals("http://")) {
 			doUrl = url.substring(7);
-		} else if (url.length() > 8 && url.substring(0, 8).equals("https://")) {
+		} else if (url.substring(0, 8).equals("https://")) {
 			doUrl = url.substring(8);
 		} else {
 			doUrl = url;
@@ -54,8 +54,8 @@ public class Main {
 			aaa.saveCtt();
 		}
 		if (ana[0].equals("bbs.csdn.net")) {
-			System.out.println(ana[2]);
-			CSDN aaa = new CSDN(ana[2]);
+			System.out.println(ana[1]);
+			CSDN aaa = new CSDN(ana[1]);
 			aaa.saveCtt();
 		}
 		if (ana[0].equals("today.hit.edu.cn")) {
@@ -64,10 +64,12 @@ public class Main {
 				aaa.saveCtt();
 			}
 		}
-		if (ana[0].equals("news.163.com")) {
-			News163 aaa = new News163(ana[1]);
-			aaa.saveCtt();
-		}
+    if (ana[0].equals("news.163.com")) {
+      System.out.println(ana[1]);
+      News163 aaa = new News163(ana[1]);
+      aaa.saveCtt();
+    }
+		
 	}
 	public static String crawlWeb() {
 		String sql = "select * from urlsdb.mails order by url";
@@ -135,15 +137,9 @@ public class Main {
 		sendMail();
 		return "su";
 	}
-	public static String test() {
-		return "ss";
-	}
-	public static void main(String[] args) {
-	   // crawlWeb();
-		//myGo();
-		News163 aaa = new News163("world");
-		aaa.saveCtt();
-	    System.out.println("main finish");
-  }
+  public static void main(String[] args) {
+      BehindMethod();
+     
+ }
 }
 

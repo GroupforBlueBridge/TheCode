@@ -18,6 +18,7 @@ public class deleteurlAction {
   private String url;
   
   private HttpServletRequest request;
+  public String friendmail;
   DB Mysql = new DB();
   public String getEmail() {
     return email;
@@ -45,5 +46,26 @@ public class deleteurlAction {
     sure = Mysql.deleteurl(request,email,url);
     //sure = "success"; 
     return sure;
+  }
+  
+  public String deletefriend()
+  {
+    //System.out.println(email);
+    //System.out.println(url);
+    String sure = null;
+    DB Mysql = new DB();   
+    //System.out.println(UrlName);
+    //System.out.println(urlcode);
+    //System.out.println(rowid1);
+    //System.out.println(email);
+    sure = Mysql.deletefriend(request,email,friendmail);
+    //sure = "success"; 
+    return sure;
+  }
+  public String getFriendmail() {
+    return friendmail;
+  }
+  public void setFriendmail(String friendmail) {
+    this.friendmail = friendmail;
   }
 }

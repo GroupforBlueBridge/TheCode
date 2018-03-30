@@ -15,9 +15,12 @@ public class SqlCon {
 	 * should not just be commented but be deleted !!  
 	 */
 	//sina
-	private static String url = "jdbc:mysql://fmpemtltjykv.mysql.sae.sina.com.cn:10319/urlsdb";
-	private static String password = "123456";
+	//private static String url = "jdbc:mysql://fmpemtltjykv.mysql.sae.sina.com.cn:10319/urlsdb";
+	//private static String password = "123456";
 	
+	private static String url = "jdbc:mysql://127.0.0.1:3306/urlsdb?useSSL=true";
+  private static String password="tjr19970907";
+  
 	public static Connection con() {
 		try {
 			Class.forName(driver);

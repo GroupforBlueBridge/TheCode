@@ -152,23 +152,31 @@
 
 				<ul>
 					<li>
-						<a href='<s:url action="main"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
+						<a href='<s:url action="friendinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
 					</li>
 						
 					<li>
 						<a href='<s:url action="Allinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Look Information</span></a>
 						
 					</li>
+					
+					<li>
+						<a href='<s:url action="friendaccept"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Friend</span></a>
+					</li>
+					<li>
+						<a href='<s:url action="news"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">News</span></a>
+					</li>
 					<li>
 						<a href='<s:url action="Addhref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Add New Url</span></a>
 					</li>
 									
 					<li>
-						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search By UrlTag</span></a>
+						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search</span></a>
 					</li>
 					<li>
 						<a href='<s:url action="helphref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Help Information</span></a>
 					</li>
+					
 					
 					<li>
 						<a href="login.jsp"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Logout</span></a>
@@ -213,49 +221,88 @@
 			<div id="content">
 				
 				<!-- widget grid -->
-				
+				<section id="widget-grid" class="">
 				
 				<!-- START ROW -->
 				
 				<h1  size="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome Use Internet </h1>
-					<!-- <div class="row">	-->			
-						<!-- NEW COL START -->			
-							<!-- Widget ID (each widget will need unique ID)-->
-						<!--	<div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">   -->
+					<form class="smart-form">	
+						<fieldset>
+							<section>
+								<label class="label">Select Time</label>
+								<label class="select">
+									<select class="input-sm">
+										<option value="0">Choose Time</option>
+										<option value="1">0:00</option>
+										<option value="2">2:00</option>
+										<option value="3">4:00</option>
+										<option value="4">6:00</option>
+										<option value="5">8:00</option>
+										<option value="6">10:00</option>
+										<option value="7">12:00</option>
+										<option value="8">14:00</option>
+										<option value="9">16:00</option>
+										<option value="10">18:00</option>
+										<option value="11">20:00</option>
+										<option value="12">22:00</option>
+									</select> <i></i> </label>
+							</section>
+							<footer>
+									<button type="submit" class="btn btn-primary">
+									
+										Submit
+									</button>
+									<button type="button" class="btn btn-default" onclick="window.history.back();">
+										Back
+									</button>
+							</footer>
+							</fieldset>
+						</form>
+					<div class="row">
 				
-								<!-- widget div-->			
-									<!-- end widget content -->
-								<!-- end widget div -->			
-							<!--  </div>  -->
+						<!-- NEW COL START -->
+						
+				
+							<!-- Widget ID (each widget will need unique ID)-->
+							<div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
+								<div>
+
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+									</div>
+									<!-- end widget edit box -->
+
+									<!-- widget content -->
+									<div class="widget-body no-padding" overflow="auto">
+										<table class="table table-bordered" id="main_info_table">
+	
+											<thead>
+												<tr>
+												<th> From</th>
+												<th> invitation</th>
+													
+													
+												</tr>
+											</thead>
+									<s:iterator value="listName" id="u" >
+									<tr>				
+									<th><s:property value="#u.friendmail"/></th>		
+									<!-- <th><a href='<s:url action="updatehref"><s:param name="email" value='email' /><s:param name="state" value='#u.state' /><s:param name="url" value='#u.url' /></s:url>'>接受</a></th>  --> 
+									<!-- <th><a href='<s:url action="deleteurl"><s:param name="email" value='email' /><s:param name="url" value='#u.url' /></s:url>'>拒绝</a></th>  -->
+									<th><a href='<s:url action="Addfriend"><s:param name="email" value='email' /><s:param name="friendmail" value='#u.friendmail' /></s:url>'>接受</a></th> 
+									<th><a href='<s:url action="refusefriend"><s:param name="email" value='email' /><s:param name="friendmail" value='#u.friendmail' /></s:url>'>拒绝</a></th>  
+									</tr>
+									</s:iterator>
+									</table>
+									</div>
+							</div>
+							
 							<!-- end widget -->
 
-				<!--  	</div>   -->
-				
-											<form class="smart-form">	
-											<fieldset>
-												<section>
-													<label class="label">Select Time</label>
-													<label class="select">
-														<select class="input-sm">
-															<option value="0">Choose Time</option>
-															<option value="1">0:00</option>
-															<option value="2">2:00</option>
-															<option value="3">4:00</option>
-															<option value="4">6:00</option>
-															<option value="5">8:00</option>
-															<option value="6">10:00</option>
-															<option value="7">12:00</option>
-															<option value="8">14:00</option>
-															<option value="9">16:00</option>
-															<option value="10">18:00</option>
-															<option value="11">20:00</option>
-															<option value="12">22:00</option>
-														</select> <i></i> </label>
-												</section>
-												</fieldset>
-											</form>
+					</div>
 						<!-- END COL -->
-						
+						</section>
 						
 			</div>
 	

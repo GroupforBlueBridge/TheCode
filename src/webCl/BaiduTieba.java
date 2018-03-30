@@ -43,9 +43,18 @@ public class BaiduTieba {
 			while (rs.next()) {
 				existThis = true;
 				String mes = rs.getString("cur");
-				String[] spt = mes.split(",");
-				page = Integer.parseInt(spt[0]);
-				floor = Integer.parseInt(spt[1]);
+				if(mes==null)
+        {
+        page = 1;
+        floor = 1;
+       }
+        else
+        {
+          String[] spt = mes.split(",");
+          
+          page = Integer.parseInt(spt[0]);
+          floor = Integer.parseInt(spt[1]);
+        }
 			}
 			rs.close();
 			conn.close();
@@ -64,7 +73,7 @@ public class BaiduTieba {
 		conn = SqlCon.con();
 		String tile_cont = baiduTieba_getTitle();
 		String svCtt = Main.filterUtf8mb4(tile_cont + ctt.toString());
-		//Main.textWrite("wr54.txt", svCtt);
+		Main.textWrite("wr54.txt", svCtt);
 		String svUrl = "https://tieba.baidu.com/p/" + id;
 		String svCur = page + "," + floor;
 		try {

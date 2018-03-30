@@ -18,6 +18,15 @@
     	<action name = "Allinformation" class = "PersonMessage.lookinformation" method = "getinformation">
         	<result name = "success">/information.jsp</result>						
         </action>
+        <action name = "news" class = "PersonMessage.lookinformation" method = "news">
+        	<result name = "success">/news.jsp</result>						
+        </action>
+        <action name = "friendinformation" class = "PersonMessage.lookinformation" method = "getmaininformation">
+        	<result name = "success">/main.jsp</result>						
+        </action>
+        <action name = "friendaccept" class = "PersonMessage.lookinformation" method = "getfriendinformation">
+        	<result name = "success">/friend.jsp</result>						
+        </action>
         <action name = "searchref" class = "PersonMessage.searchwithtag" method = "searchhref">
         	<result name = "success">/searchwithtag.jsp</result>					
         </action>
@@ -25,6 +34,11 @@
         	<result name = "success">/searchresult.jsp</result>
         	<result name = "notag">/noresult.jsp</result>
         	<result name = "noresult">/noresult.jsp</result>					
+        </action>
+        <action name = "searchfriend" class = "PersonMessage.searchwithtag" method = "searchfriend">
+        	<result name = "success">/searchresult2.jsp</result>
+        	<result name = "nofriend">/noresult2.jsp</result>
+        	<result name = "noresult">/noresult2.jsp</result>					
         </action>
         <action name = "main" class = "PersonMessage.lookinformation" method = "mainhref">
         	<result name = "success">/main.jsp</result>					
@@ -37,11 +51,23 @@
     	<action name = "Addhref" class = "DomainMessage.AddnewurlAction" method = "passhref">
         	<result name = "success">/Addnewurl.jsp</result>					
         </action>
+        <action name = "Addfriend" class = "DomainMessage.AddnewurlAction" method = "addfriend">
+        	<result name = "success">/successdomain.jsp</result>					
+        </action>
+        <action name = "askfriend" class = "DomainMessage.AddnewurlAction" method = "askfriend">
+        	<result name = "success">/successdomain.jsp</result>					
+        </action>
+        <action name = "refusefriend" class = "DomainMessage.AddnewurlAction" method = "refusefriend">
+        	<result name = "success">/successdomain.jsp</result>					
+        </action>
     	<action name = "Addmessage" class = "DomainMessage.AddnewurlAction" method = "addmess">
         	<result name = "success">/successdomain.jsp</result>
         	<result name = "one">/wrongaddnewurl.jsp</result>						
         </action>
         <action name = "deleteurl" class = "DomainMessage.deleteurlAction" method = "deleteurl">
+        	<result name = "success">/successdomain.jsp</result>      						
+        </action>
+        <action name = "deletefriend" class = "DomainMessage.deleteurlAction" method = "deletefriend">
         	<result name = "success">/successdomain.jsp</result>      						
         </action>
         <action name = "updatehref" class = "DomainMessage.updateurlAction" method = "uphref">

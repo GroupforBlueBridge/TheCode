@@ -1,9 +1,9 @@
+<%@ page language ="java" contentType="text/html;charset=GB18030" pageEncoding="GB18030" %>
 
-<%@ page language="java" contentType="text/html; charset=utf-8"  %>
-  <%@page import="LogAction.LoginAction"%>
 <%@page import ="java.util.ArrayList" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
-
+<%@page import="LogAction.LoginAction"%>
+<%@page import="PersonMessage.lookinformation"%>
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
@@ -96,6 +96,7 @@
 							<a href="help.jsp">or you just want some instruction?</a>
 							</li>
 						</ul>
+
 			<!-- pulled right: nav area -->
 			<div class="pull-right">
 
@@ -126,9 +127,10 @@
 				<span> <!-- User image size is adjusted inside CSS, it should stay as it --> 
 					
 					<a href="javascript:void(0);" id="show-shortcut">
-						
+						<%
+						%>
 						<span>
-							<s:property value='email'/> 
+							<s:property value='email'/>
 						</span>
 						<i class="fa fa-angle-down"></i>
 					</a> 
@@ -144,6 +146,11 @@
 			will not initialize.
 			-->
 			<nav>
+				<!-- NOTE: Notice the gaps after each icon usage <i></i>..
+				Please note that these links work a bit different than
+				traditional hre="" links. See documentation for details.
+				-->
+
 				<ul>
 					<li>
 						<a href='<s:url action="friendinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
@@ -153,22 +160,27 @@
 						<a href='<s:url action="Allinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Look Information</span></a>
 						
 					</li>
+					
 					<li>
 						<a href='<s:url action="friendaccept"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Friend</span></a>
 					</li>
 					<li>
 						<a href='<s:url action="news"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">News</span></a>
 					</li>
+					
 					<li>
 						<a href='<s:url action="Addhref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Add New Url</span></a>
 					</li>
 									
 					<li>
-						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search By UrlTag</span></a>
+						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search</span></a>
 					</li>
 					<li>
 						<a href='<s:url action="helphref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Help Information</span></a>
 					</li>
+					
+					
+					
 					
 					<li>
 						<a href="login.jsp"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Logout</span></a>
@@ -192,118 +204,32 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Search By Tag</li>
+					<li>Home</li><li>news</li>
 				</ol>
 				<!-- end breadcrumb -->
 
-				
+				<!-- You can also add more buttons to the
+				ribbon for further usability
+
+				Example below:
+
+				<span class="ribbon-button-alignment pull-right">
+				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
+				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
+				</span> -->
+
 			</div>
 			<!-- END RIBBON -->
 			<!-- MAIN CONTENT -->
 			<div id="content">
+				<%=(String)session.getAttribute("abc")%>
 				
 				<!-- widget grid -->
-				<section id="widget-grid" class="">
-				
-				<!-- START ROW -->
-				
-					<div class="row">
-				
-						<!-- NEW COL START -->
-						<article class="col-sm-12 col-md-12 col-lg-8">
-				
-							<!-- Widget ID (each widget will need unique ID)-->
-							<div class="jarviswidget" id="wid-id-1" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-custombutton="false">
-								
-				
-								<!-- widget div-->
-								<div>
-				
-									<!-- widget edit box -->
-									<div class="jarviswidget-editbox">
-										<!-- This area used as dropdown edit box -->
-				
-									</div>
-									<!-- end widget edit box -->
-				
-									<!-- widget content -->
-									<div class="widget-body no-padding">
-			
-										<s:form action="search" class="smart-form">
-											<input name="email" type="hidden" value="<s:property value="email"/>" />
-											
-				
-											<fieldset>
-												
-												<section>
-													<label class="label">Searched Tag</label>
-													<label class="input">
-														<input type="text" name="tagname" class="input-sm">
-													</label>
-												</section>
-												
-												
-											
-											</fieldset>
-																							
-											<footer>
-													<button type="submit" class="btn btn-primary">
-														Submit
-													</button>
-													<button type="button" class="btn btn-default" onclick="window.history.back();">
-														Back
-													</button>
-											</footer>
-										</s:form>
-										
-										<s:form action="searchfriend" class="smart-form">
-											<input name="email" type="hidden" value="<s:property value="email"/>" />
-											
-				
-											<fieldset>
-												
-												<section>
-													<label class="label">Searched Friend</label>
-													<label class="input">
-														<input type="text" name="friendname" class="input-sm">
-													</label>
-												</section>
-												
-												
-											
-											</fieldset>
-																							
-											<footer>
-													<button type="submit" class="btn btn-primary">
-														Submit
-													</button>
-													<button type="button" class="btn btn-default" onclick="window.history.back();">
-														Back
-													</button>
-											</footer>
-										</s:form>
-				
-
-
-									</div>
-									<!-- end widget content -->
-				
-								</div>
-								<!-- end widget div -->
-				
-							</div>
-							<!-- end widget -->
-				
-						</article>
-					</div>
-						<!-- END COL -->
-						</section>
-						
-			</div>
+				</div>
+						</div>
 	
 			<!-- END MAIN CONTENT -->
-	
-			<!-- End main Panel -->
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
 		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
 
@@ -359,6 +285,7 @@
 			})();
 
 		</script>
+
 
 </body>
 </html>

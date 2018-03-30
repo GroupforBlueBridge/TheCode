@@ -22,7 +22,7 @@ public class MailSend {
     public static String myEmailSMTPHost = "smtp.163.com";
 
     // 收件人邮箱（替换为自己知道的有效邮箱）
-    public static String receiveMailAccount = "648923307@qq.com";
+    public static String receiveMailAccount = "2282550468@qq.com";
     
     public void setEml(String[] args) throws Exception {
         // 1. 创建一封邮件
@@ -41,7 +41,7 @@ public class MailSend {
         message.setFrom(new InternetAddress("hh996896116@163.com", "USER_AA", "UTF-8"));
 
         // 3. To: 收件人
-        message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress("2819963552@qq.com", "USER_CC", "UTF-8"));
+        message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress("2282550468@qq.com", "USER_CC", "UTF-8"));
         //    To: 增加收件人（可选）
         //message.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress("dd@receive.com", "USER_DD", "UTF-8"));
         //    Cc: 抄送（可选）
@@ -153,10 +153,11 @@ public class MailSend {
         MimeMessage message = new MimeMessage(session);
 
         // 2. From: 发件人（昵称有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改昵称）
-        message.setFrom(new InternetAddress(sendMail, "网页知", "UTF-8"));
+        message.setFrom(new InternetAddress(sendMail, "网页更新订阅消息", "UTF-8"));
 
         // 3. To: 收件人（可以增加多个收件人、抄送、密送）
-        message.setRecipient(MimeMessage.RecipientType.CC, new InternetAddress("hh996896116@163.com", "USER_EE", "UTF-8"));
+        //message.setRecipient(MimeMessage.RecipientType.CC, new InternetAddress("hh996896116@163.com", "USER_EE", "UTF-8"));
+        message.setRecipient(MimeMessage.RecipientType.CC, new InternetAddress("2282550468@qq.com", "USER_EE", "UTF-8"));
         message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "hfds", "UTF-8"));
 
         // 4. Subject: 邮件主题（标题有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改标题）

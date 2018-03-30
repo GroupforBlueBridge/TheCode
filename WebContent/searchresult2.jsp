@@ -1,8 +1,9 @@
 
-<%@ page language="java" contentType="text/html; charset=utf-8"  %>
-  <%@page import="LogAction.LoginAction"%>
-<%@page import ="java.util.ArrayList" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
+<%@page import="LogAction.LoginAction"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@page import ="java.util.ArrayList" %>
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -192,7 +193,7 @@
 
 				<!-- breadcrumb -->
 				<ol class="breadcrumb">
-					<li>Home</li><li>Search By Tag</li>
+					<li>Home</li><li>Search Friend</li>
 				</ol>
 				<!-- end breadcrumb -->
 
@@ -229,33 +230,6 @@
 									<!-- widget content -->
 									<div class="widget-body no-padding">
 			
-										<s:form action="search" class="smart-form">
-											<input name="email" type="hidden" value="<s:property value="email"/>" />
-											
-				
-											<fieldset>
-												
-												<section>
-													<label class="label">Searched Tag</label>
-													<label class="input">
-														<input type="text" name="tagname" class="input-sm">
-													</label>
-												</section>
-												
-												
-											
-											</fieldset>
-																							
-											<footer>
-													<button type="submit" class="btn btn-primary">
-														Submit
-													</button>
-													<button type="button" class="btn btn-default" onclick="window.history.back();">
-														Back
-													</button>
-											</footer>
-										</s:form>
-										
 										<s:form action="searchfriend" class="smart-form">
 											<input name="email" type="hidden" value="<s:property value="email"/>" />
 											
@@ -282,7 +256,6 @@
 													</button>
 											</footer>
 										</s:form>
-				
 
 
 									</div>
@@ -295,6 +268,87 @@
 							<!-- end widget -->
 				
 						</article>
+						<article class="col-sm-12 col-md-12 col-lg-10">
+
+							<!-- Widget ID (each widget will need unique ID)-->
+							<div class="jarviswidget jarviswidget-color-greenLight" id="wid-id-3" data-widget-editbutton="false">
+								
+								<header>
+									<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+									<h2>Search Result</h2>
+
+								</header>		
+				
+				<!-- widget div-->
+								<div>
+
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+									</div>
+									<!-- end widget edit box -->
+
+									<!-- widget content -->
+									<div>
+
+									<!-- widget edit box -->
+									<div class="jarviswidget-editbox">
+										<!-- This area used as dropdown edit box -->
+									</div>
+									<!-- end widget edit box -->
+
+									<!-- widget content -->
+									<div class="widget-body no-padding" overflow="auto">
+										<table class="table table-bordered" id="main_info_table">
+	
+											<thead>
+												<tr>
+													<th> Name</th>
+													
+												</tr>
+											</thead>
+											
+											
+											<s:iterator value="listName" id="u" >
+											<tr>
+											
+											<th><s:property value="#u.mail"/></th>
+											
+											
+											<th><a href='<s:url action="askfriend"><s:param name="email" value='email' /><s:param name="friendmail" value='#u.mail' /></s:url>'>添加</a></th> 
+
+											<th><a href='successdomain.jsp'>返回</a></th>
+											</tr>
+											</s:iterator>
+	
+	
+									</table>
+								</div>
+<script type="text/javascript">
+	var tab = document.getElementById('main_info_table');
+	var rows_n = tab.rows.length;
+	for (var i = 1; i < rows_n; i++) {
+		var vlue = tab.rows[i].cells[2];
+		if (vlue.innerHTML == "close") {
+			vlue.style.color = "red";
+		}
+		else {
+			vlue.style.color = "pink";
+		}
+		//console.log("qqq", tab.rows[i].cells[3]);
+	}
+</script>
+										
+										
+									</div>
+									<!-- end widget content -->
+
+								</div>
+								<!-- end widget div -->
+
+							</div>
+							<!-- end widget -->
+					</article>
 					</div>
 						<!-- END COL -->
 						</section>

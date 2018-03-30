@@ -51,7 +51,7 @@
 		
 <ul>
 							<li>
-								contact us: 2282550468@qq.com / 2819963552@qq.com / 648923307@qq.com
+								contact us: 2282550468@qq.com / best.xutao@foxmail.com / 648923307@qq.com
 								<a href="help.jsp">or you just want some instruction?</a></li>
 						</ul>
 		

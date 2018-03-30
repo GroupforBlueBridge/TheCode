@@ -53,15 +53,17 @@ public class TodayHIT {
         while (m.find()) {
         	String href = m.group(1);
         	String t_tile = m.group(2);
-        	String t_time = m.group(3);
-        	if (date_time != null && href.compareTo(date_time) <= 0) {
+        	String t_time = href.substring(0, 10);
+        	if (date_time != null && t_time.compareTo(date_time) < 0) {
         		continue;
         	}
         	System.out.println(href);
         	System.out.println(date_time);
         	ctt.append( "<a href='http://today.hit.edu.cn/news/" + href + "'>" +  t_tile + "</a><br>");
-        	if (max_d.compareTo(href) < 0) {
-        		max_d = href;
+        	//if ((max_d.compareTo(t_time) > 0&&max_d=="0")||(max_d.compareTo(t_time)<0&&max_d!="0")) 
+        	  if ((max_d.compareTo(t_time) < 0)) {
+        		max_d = t_time;
+        		System.out.println(max_d);
         	}
         }
         date_time = max_d;

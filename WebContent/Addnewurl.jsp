@@ -91,7 +91,7 @@
 
 <ul>
 							<li>
-								contact us: 2282550468@qq.com / 2819963552@qq.com / 648923307@qq.com
+								contact us: 2282550468@qq.com / best.xutao@foxmail.com / 648923307@qq.com
 							<a href="help.jsp">or you just want some instruction?</a>
 							</li>
 						</ul>
@@ -150,12 +150,19 @@
 				-->
 <ul>
 					<li>
-						<a href='<s:url action="main"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
+						<a href='<s:url action="friendinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
 					</li>
 						
 					<li>
 						<a href='<s:url action="Allinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Look Information</span></a>
 						
+					</li>
+					
+					<li>
+						<a href='<s:url action="friendaccept"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Friend</span></a>
+					</li>
+					<li>
+						<a href='<s:url action="news"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">News</span></a>
 					</li>
 					<li>
 						<a href='<s:url action="Addhref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Add New Url</span></a>
@@ -295,8 +302,8 @@
 							CSDN:(eg.) <p style="color:red;">http://bbs.csdn.net/topics/392064169</p>
 							TodayHIT:(eg.)<p style="color:red;">http://today.hit.edu.cn/classList/1_27.html</p>
 							<p style="color:red;">http://today.hit.edu.cn/classList/1_9.html</p>
-							news163:(eg.)<p style="color:red;">http://news.163.com/world/</p>
-							<p style="color:red;">http://news.163.com/domestic/</p>
+							news163:(eg.)<p style="color:red;">http://news.163.com/world</p>
+							<p style="color:red;">http://news.163.com/domestic</p>
 							</div>
 							<!-- end widget -->
 				

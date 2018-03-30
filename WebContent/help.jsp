@@ -145,19 +145,27 @@
 			<nav>
 				<ul>
 					<li>
-						<a href='<s:url action="main"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
+						<a href='<s:url action="friendinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Home</span></a>
 					</li>
 						
 					<li>
 						<a href='<s:url action="Allinformation"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Look Information</span></a>
 						
 					</li>
+					
+					<li>
+						<a href='<s:url action="friendaccept"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Friend</span></a>
+					</li>
+					<li>
+						<a href='<s:url action="news"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">News</span></a>
+					</li>
+					
 					<li>
 						<a href='<s:url action="Addhref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">Add New Url</span></a>
 					</li>
 									
 					<li>
-						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search By UrlTag</span></a>
+						<a href='<s:url action="searchref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">Search</span></a>
 					</li>
 					<li>
 						<a href='<s:url action="helphref"><s:param name="email" value='email' /></s:url>'><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Help Information</span></a>
@@ -238,8 +246,8 @@
 								<h2>3.View all URLS</h2>
 								<h3>If you want to check or edit the URLS you have added, just click the the "Look Information". If you want to edit or delete one of the URLS just click edit button or delete button.</h3>
 									<img src="img/help/all.jpg" alt="SmartAdmin">
-								<h2>4.Search by Urltag</h2>
-								<h3>If you want to search your URLS by tags to avoid check it one by one, just click the the "Search by URLTag" and input which kind of tag you want to search</h3>
+								<h2>4.Search</h2>
+								<h3>If you want to search your URLS by tags to avoid check it one by one, just click the the "Search" and input which kind of tag you want to search</h3>
 									<img src="img/help/tag.jpg" alt="SmartAdmin">
 								
 								

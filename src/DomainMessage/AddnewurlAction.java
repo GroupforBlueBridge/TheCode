@@ -21,6 +21,7 @@ public class AddnewurlAction {
   private String rowid = null;
   private int rowid1;
  
+  public String friendmail;
   public String Strresult;
   public ResultSet result2;
   private HttpServletRequest request;
@@ -35,7 +36,33 @@ public class AddnewurlAction {
     return Str;
   }
   
+  public String addfriend()
+  {
+    String Str =null;
+    Str = Mysql.addfriend(request,email,friendmail);
+    //System.out.println(email);
+    Str="success";
+    return Str;
+  }
   
+  public String askfriend()
+  {
+    String Str =null;
+    Str = Mysql.askfriend(request,email,friendmail);
+    //System.out.println(email);
+    Str="success";
+    return Str;
+  }
+  
+  
+  public String refusefriend()
+  {
+    String Str =null;
+    Str = Mysql.refusefriend(request,email,friendmail);
+    //System.out.println(email);
+    Str="success";
+    return Str;
+  }
   //addmessage Action
   public String addmess()
   {
@@ -98,5 +125,13 @@ public class AddnewurlAction {
 
   public void setRowid1(int rowid1) {
     this.rowid1 = rowid1;
+  }
+
+  public String getFriendmail() {
+    return friendmail;
+  }
+
+  public void setFriendmail(String friendmail) {
+    this.friendmail = friendmail;
   }
 }

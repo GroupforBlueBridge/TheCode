@@ -60,7 +60,7 @@
 			<span id="login-header-space"> <span class="hidden-mobile">Already registered?</span> <a href="login.jsp" class="btn btn-danger">Sign In</a> </span>
 <ul>
 							<li>
-								contact us: 2282550468@qq.com / 2819963552@qq.com / 648923307@qq.com
+								contact us: 2282550468@qq.com / best.xutao@foxmail.com / 648923307@qq.com
 							<a href="help.jsp">or you just want some instruction?</a>
 							</li>
 						</ul>
@@ -165,7 +165,7 @@
 						</ul>
 						<ul class="list-inline text-center">
 							<li>
-								<h5> Huanghekai 2819963552@qq.com</h5>
+								<h5> Huanghekai best.xutao@foxmail.com</h5>
 							</li>
 						</ul>
 						<ul class="list-inline text-center">

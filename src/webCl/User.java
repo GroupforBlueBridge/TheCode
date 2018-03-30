@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class User {
 	public String addr;
 	public StringBuffer ctt;
-	User(String addr) {
+	public User(String addr) {
 		this.addr = addr;
 		ctt = new StringBuffer();
 	}
@@ -32,8 +32,8 @@ public class User {
 			e.printStackTrace();
 		}
 		if (cttFromSql.equals("")) {
-			cttFromSql = "^no message<br>";
+			cttFromSql = "^there isn't any new message in this url";
 		}
-		ctt.append(url + "<br/>" + cttFromSql + "<br>\r\n------------end this url------------\r\n<br>");
+		ctt.append(url + "<br/>" + cttFromSql + "\n\r\n------------end this url------------\n\r\n");
 	}
 }

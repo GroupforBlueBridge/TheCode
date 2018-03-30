@@ -8,21 +8,21 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 
 public class DB implements ServletRequestAware{
 	private String driverName="com.mysql.jdbc.Driver";
-	private String user ="root";
+	  private String user ="root";
 	  
-	private String url = "jdbc:mysql://127.0.0.1:3306/urlsdb?useSSL=true";
-	private String password="tjr19970907";
+	  private String url = "jdbc:mysql://127.0.0.1:3306/urlsdb?useSSL=true";
+	  private String password="tjr19970907";
 	  
 		
-	//private static String url = "jdbc:mysql://localhost:3306/urlsdb?useSSL=true";
+	 // private static String url = "jdbc:mysql://localhost:3306/urlsdb?useSSL=true";
 	//private static String password = "1234";
 		/* 
 		 * in principle, these source codes that refer to the url and password to SQL server on sina
 		 * should not just be commented but be deleted !!  
 		 */
 		//sina
-	//private static String url = "jdbc:mysql://fmpemtltjykv.mysql.sae.sina.com.cn:10319/urlsdb";
-	//private static String password = "123456";
+		//private static String url = "jdbc:mysql://fmpemtltjykv.mysql.sae.sina.com.cn:10319/urlsdb";
+		//private static String password = "123456";
 		
 		private Connection con = null;
 		  private Statement st =null;
@@ -117,6 +117,24 @@ public class DB implements ServletRequestAware{
       st = getStatement();
       int row1=st.executeUpdate(sql1);
       int row2=st.executeUpdate(sql2);
+      sure = "success";    
+      return sure;
+    }catch(Exception e){
+      e.printStackTrace();
+      return null;
+          }
+              
+  }
+  
+  public String deletefriend(HttpServletRequest request,String userName,String friendmail)
+  {
+    try{
+      String sure = null;
+      String sql1 ="delete from friend where usermail='"+userName+"' and friendmail='"+friendmail+"'";
+      //String sql2 ="delete from mails where mails='"+userName+"' and url='"+url+"'";
+      st = getStatement();
+      int row1=st.executeUpdate(sql1);
+      //int row2=st.executeUpdate(sql2);
       sure = "success";    
       return sure;
     }catch(Exception e){
@@ -226,10 +244,111 @@ public class DB implements ServletRequestAware{
       //else{
         String sql1 ="insert into mail"+" (mail,rowid,url,tag,state)"+" values("+"'"+email+"'"+","+"'"+rowid+"'"+","+"'"+url+"'"+","+"'"+tag+"'"+","+"'open'"+")";
         String sql2 ="insert into mails"+" (mails,rowid,url)"+" values("+"'"+email+"'"+","+"'"+rowid+"'"+","+"'"+url+"'"+")";
+        String sql3 ="insert into urls"+" (url)"+" values("+"'"+url+"'"+")";
+        
         st = getStatement();
         System.out.println(rowid);
         int row1=st.executeUpdate(sql1);
         int row2=st.executeUpdate(sql2);
+        int row3=st.executeUpdate(sql3);
+        sure = "success";
+      //}
+      return sure;
+    }catch(Exception e){
+      e.printStackTrace();
+      return null;
+          }
+              
+  }
+  
+  public String addfriend(HttpServletRequest request,String email,String friendmail)
+  {
+    
+    try{
+      String sure = null;
+      //rs = selecturl(request,email,url);
+      //if(rs.next())
+      //{
+        //已经有一个了
+        //sure = "one";
+      //}
+      //else{
+      String p = null;
+      p = email+friendmail;
+      String q = null;
+      q = email+"11"+friendmail;
+        String sql3 ="delete from friend where usermail='"+friendmail+"' and friendmail='"+email+"'";
+        String sql1 ="insert into friend"+" (usermail1,friendmail,state,usermail)"+" values("+"'"+p+"'"+","+"'"+friendmail+"'"+","+"'accept'"+","+"'"+email+"'"+")";
+        String sql2 ="insert into friend"+" (usermail1,friendmail,state,usermail)"+" values("+"'"+q+"'"+","+"'"+email+"'"+","+"'accept'"+","+"'"+friendmail+"'"+")";
+        //String sql2 ="insert into mails"+" (mails,rowid,url)"+" values("+"'"+email+"'"+","+"'"+rowid+"'"+","+"'"+url+"'"+")";
+        st = getStatement();
+        //System.out.println(rowid);
+        int row3=st.executeUpdate(sql3);
+        int row1=st.executeUpdate(sql1);
+        int row2=st.executeUpdate(sql2);
+        
+        sure = "success";
+      //}
+      return sure;
+    }catch(Exception e){
+      e.printStackTrace();
+      return null;
+          }
+              
+  }
+  
+  public String askfriend(HttpServletRequest request,String email,String friendmail)
+  {
+    
+    try{
+      String sure = null;
+      //rs = selecturl(request,email,url);
+      //if(rs.next())
+      //{
+        //已经有一个了
+        //sure = "one";
+      //}
+      //else{
+      String p = null;
+      p = email+friendmail+"11";
+        //String sql3 ="delete from friend where usermail='"+email+"' and frinedmail='"+friendmail+"'";
+        String sql1 ="insert into friend"+" (usermail1,friendmail,state,usermail)"+" values("+"'"+p+"'"+","+"'"+friendmail+"'"+","+"'wait'"+","+"'"+email+"'"+")";
+        //String sql2 ="insert into mails"+" (mails,rowid,url)"+" values("+"'"+email+"'"+","+"'"+rowid+"'"+","+"'"+url+"'"+")";
+        st = getStatement();
+        //System.out.println(rowid);
+        int row1=st.executeUpdate(sql1);
+        //int row2=st.executeUpdate(sql3);
+        sure = "success";
+      //}
+      return sure;
+    }catch(Exception e){
+      e.printStackTrace();
+      return null;
+          }
+              
+  }
+  
+  public String refusefriend(HttpServletRequest request,String email,String friendmail)
+  {
+    
+    try{
+      String sure = null;
+      //rs = selecturl(request,email,url);
+      //if(rs.next())
+      //{
+        //已经有一个了
+        //sure = "one";
+      //}
+      //else{
+      String p = null;
+      p = email+friendmail;
+        String sql3 ="delete from friend where usermail='"+email+"' and frinedmail='"+friendmail+"'";
+        //String sql1 ="insert into friend"+" (usermail1,friendmail,state,usermail)"+" values("+"'"+p+"'"+","+"'"+friendmail+"'"+","+"'accept'"+","+"'"+email+"'"+")";
+        //String sql2 ="insert into mails"+" (mails,rowid,url)"+" values("+"'"+email+"'"+","+"'"+rowid+"'"+","+"'"+url+"'"+")";
+        st = getStatement();
+        //System.out.println(rowid);
+        int row1=st.executeUpdate(sql3);
+        //int row2=st.executeUpdate(sql2);
         sure = "success";
       //}
       return sure;
@@ -289,6 +408,20 @@ public class DB implements ServletRequestAware{
       return null;
     }
   }
+  
+  public ResultSet selectsearchfriend(HttpServletRequest request,String userName,String friendname)
+  {
+    //System.out.println(userName);
+    try{
+      String sql = "select * from logindb where mail='"+friendname+"'";
+      st = getStatement();
+      return st.executeQuery(sql);
+    }catch(Exception e){
+      e.printStackTrace();
+      return null;
+    }
+  }
+  
   public ResultSet selectupdate(HttpServletRequest request,String userName,String url)
   {
     //System.out.println(userName);
@@ -317,6 +450,43 @@ public class DB implements ServletRequestAware{
   {
     try{
       String sql = "select * from mail where mail='"+mail+"'";
+      st = getStatement();
+      return st.executeQuery(sql);
+    }catch(Exception e){
+      e.printStackTrace();
+      return null;
+    }
+  }
+  
+  public ResultSet selectMessfriend(HttpServletRequest request,String mail)
+  {
+    try{
+      String sql = "select * from friend where friendmail='"+mail+"'"+" and state='wait'";
+      st = getStatement();
+      return st.executeQuery(sql);
+    }catch(Exception e){
+      e.printStackTrace();
+      return null;
+    }
+  }
+  
+  public ResultSet selectnews(HttpServletRequest request,String mail)
+  {
+    try{
+      String sql = "select * from urls where usermail='"+mail+"'";
+      st = getStatement();
+      return st.executeQuery(sql);
+    }catch(Exception e){
+      e.printStackTrace();
+      return null;
+    }
+  }
+  
+  
+  public ResultSet selectMessfriend2(HttpServletRequest request,String mail)
+  {
+    try{
+      String sql = "select * from friend where usermail='"+mail+"'"+" and state='accept'";
       st = getStatement();
       return st.executeQuery(sql);
     }catch(Exception e){
